@@ -2,9 +2,88 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title></title>
+        <title>day 16</title>
+        <style>
+        div {
+            outline: 1px dashed red;
+        }
+        .gua-position {
+            display: inline-block;
+            height: 600px;
+        }
+        /* position属性：
+                默认 static，非 static 可以设置一些属性，如 top 等
+                relative 并不会改变页面布局
+        */
+        .gua-holder {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background: lightblue;
+        }
+        .gua-static {
+            position: static;
+        }
+        .gua-relative {
+            position: relative;
+            top: 59px;
+            left: 50px;
+        }
+        .gua-absolute {
+            position: absolute;
+            left: 0;
+        }/* absolute 脱离了文档流，脱离了页面，位置不保留
+            absolute 是会滚动的
+            不相对一个父节点来定位
+            寻找父节点，找到一个 static
+            往上找一个非默认的父元素来进行定位
+            up left buttom right
+            移动的时候连原有的空间都移走
+        */
+        .gua-fixed {
+            position: fixed;
+            top: 0px;
+            height: 100px;
+            background: yellow;
+        } /* fixed 是相对于整个页面来讲的，相对于浏览器的绝对定位
+         */
+        </style>
     </head>
     <body>
         <script type="text/javascript" src="day16.js"></script>
+        <div class="gua-block">
+            block
+        </div>
+        <!-- 浏览器默认定义的 div 的 display: block; 会占据一整行 -->
+        <!-- display 主要有 3 个值
+                block 独占一行
+                inline 和别人挤成一行
+                inline-block 和别人挤在一行，但是可以设置盒模型
+        -->
+        <button type="button">add</button>
+        <input type="text" value="">
+        <button type="button">delete</button>
+        <div class="gua-inline">
+            inline
+        </div>
+        <div class="gua-holder">
+        </div>
+        <div class="gua-position">
+            <div class="gua-static">
+                static
+            </div>
+            <div class="gua-relative">
+                relative
+            </div>
+            <div class="gua-absolute">
+                absolute
+            </div>
+            <div class="gua-fixed">
+                fixed
+            </div>
+            <div class="gua-footer">
+                footer
+            </div>
+        </div>
     </body>
 </html>
