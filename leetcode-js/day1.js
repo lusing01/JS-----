@@ -24,19 +24,23 @@ var twoSum = function(nums, target) {
 //The digits are stored in reverse order and each of their nodes contain a single digit.
 //Add the two numbers and return it as a linked list.
 //You may assume the two numbers do not contain any leading zero, except the number 0 itself.
-var ListNode = function(val) {
-    this.val = val;
+var ListNode = function(val) { // 声明单点储存函数
+    this.val = val; // 函数的调用方式决定了 this 的值，每次调用时 this 的值会有不同
     this.next = null;
 }
 var addTwoNumbers = function(l1, l2) {
-    var sum = l1.val + l2.val;
-    var next1 = l1.next;
-    var next2 = l2.next;
+    var sum = l1.val + l2.val; // 储存点的值相加
+    var next1 = l1.next; // 调用 l1 的 next 属性进行赋值
+    var next2 = l2.next; // 调用 l2 的 next 属性进行赋值
     var l3 = new ListNode(sum % 10);
     var node = l3;
     sum = Math.floor(sum / 10);
     while(next1 || next2 || sum !== 0) {
         sum += (next1?next1.val:0) + (next2?next2.val:0);
+        /*
+            sum = sum + (next1?next1.val:0) + (next2?next2.val:0)
+                next1?next1.val:0，三目运算符：next1 非零则赋值为 next1.val 为零则赋值为0
+        */
         node.next = new ListNode(sum % 10);
         node = node.next;
         next1 = next1?next1.next:null;
