@@ -1,0 +1,37 @@
+/*    CSS 模块：所有的类名都只有局部作用域的CSS文件
+    避免全局作用域的问题
+*/
+/*    CSS 模块需要在构建步骤进行管道化，不是自动驱动     */
+/*    在一个 JavaScript 模块中导入一个 CSS 文件时，"CSS 模块" 将会定义一个对象：
+        将文件中类的名字动态的映射为该 JS 作用域中可以使用的字符串
+        类名是动态生成的且唯一的
+        和正确的样式表一一对应的
+*/
+/* 实现 CSS 模块，需要 Webpack 或者 Browserrify */
+
+/* WebPack: 在 webpack.config.js 中 */
+{
+    test: /\.css$/,
+    loader: 'style-loader!css-loader?modules'
+}
+
+/* Browserify: 在 config.js 中加入 npm script */
+{
+    "script": {
+        "build": "browserify - p [ css-modulesify -o dist/main.css] -o dist/index.js src/index.js"
+    }
+}
+
+/* SMACSS:Scalable and Modular Architecture for CSS
+    样式表分为 5 种类型： Base, Layout, Module, State, Theme
+    1.Base:   基础样式表，基本的样式。
+    2.Layout: 布局样式，实现网页的基本布局，搭起整个网页的基本骨架。
+    3.Module: 相对独立的功能区域，是独立的且可重用的，不依赖于布局组件。
+    4.State: 状态样式，表示某个组件或功能不同的状态。
+    5.Theme: 主题皮肤，分离了结构和皮肤。
+*/
+/* CSS 的规则命名
+    1.独一无二的规则
+    2。简短的命名
+    3.浅嵌套，控制在 3 层以内
+*/
