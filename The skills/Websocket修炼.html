@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <title>WebSocket 修炼</title>
+        <script language="javascript" type="text/javascript">
+        var WebSocketTest = function() {
+            if("WebSocket" in window){
+                alert("您的浏览器支持 WebSocket!");
+
+                var ws = new WebSocket("ws://loacalhost:9998/echo");
+                ws.onopen = function() {
+                    ws.send("发送数据");
+                };
+                ws.onmessage = function(evt) {
+                    var received_msg = evt.data;
+                };
+                ws.onclose();
+            } else {
+                alert("您的浏览器不支持 WebSocket!")
+            }
+        }
+        </script>
+    </head>
+    <body>
+        <div>
+            <a href="javascript:WebSoketTest()">运行 WebSocket 测试</a>
+        </div>
+    </body>
+</html>
