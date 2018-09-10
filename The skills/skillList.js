@@ -9,8 +9,8 @@ WebKit/Blink
 jQuery UI 和 Bootstrap
 Grunt Less
 Meteor/AngularJS/Polymer
-Backbone.js/React/MV*
-Sea.js/RequireJS/Browserify/Bower/WebPack
+React/MV*
+WebPack
 Less/Sass/PostCSS/CoffeeScript/TypeScript
 Grunt Gulp
 MongoDB/bash/ApacheBench
